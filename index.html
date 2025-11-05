@@ -1,0 +1,110 @@
+<html>
+<head>
+    <title>Billy's Custom Bikes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background: #000000;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            font-family: 'Oswald', sans-serif;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            border-radius: 20px;
+            border: #4a4a4a solid 5px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            height: 50px; 
+            width: auto;
+            border-radius: 25%;
+        }
+        h1 {
+            color: #4a4a4a;
+            font-weight: 700;
+            margin: 0;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .content {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .bike-image {
+            width: 100%;
+            max-width: 300px; 
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            object-fit: cover; 
+        }
+        .order-button {
+            background-color: #4B5320; 
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+            font-family: inherit;
+            width; 50%;
+        }
+        .order-button:hover {
+            background-color: #4B5320;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            
+            <img src="your_logo.png" alt="Billy's Custom Bikes Logo" class="logo">
+            <h1>Billy's Custom Bikes</h1>
+            <div>&nbsp;</div> 
+        </header>
+
+        <div class="content">
+            <h2>Check out my custom Surrons!</h2>
+            
+            <div class="image-gallery">
+                
+                <img src="images/photos/surron1.png" alt="Custom Surron Bike 1" class="bike-image">
+                <img src="images/photos/surron2.png" alt="Custom Surron Bike 2" class="bike-image">
+                
+            
+            </div>
+            
+            <a href="downpayment.html">
+                <button class="order-button">Start Order</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
