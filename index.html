@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="icon" type="image/png" href="images/graphics/logo.png">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Rons</title>s
+    <link rel="icon" type="image/png" href="images/graphics/logo.png">
+    <title>Mini Prints</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
@@ -67,24 +62,37 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
+
+        
         .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            display: flex; 
+            gap: 20px; 
+            justify-content: center;
             margin-bottom: 40px;
         }
-        .bike-image {
-            width: 100%;
-            height: 450px;
+        .slider-container {
+            flex: 1;
+            max-width: 450px; 
+            position: relative;
+            overflow: hidden;
             border-radius: 20px;
             box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+            height: 450px; 
+        }
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
             object-fit: cover;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .bike-image:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(255, 255, 255, 0.2);
+        .slide.active {
+            opacity: 1;
         }
+
         .order-button {
             background: linear-gradient(135deg, #4B5320 0%, #5a6a2a 100%);
             border: none;
@@ -120,23 +128,25 @@
                 font-size: 1.5rem;
             }
             .image-gallery {
-                grid-template-columns: 1fr;
+                flex-direction: column; 
+                align-items: center;
+            }
+            .slider-container {
+                height: 300px;
+                max-width: 100%;
             }
         }
     
         footer {
-    background: #111111;
-    border-radius: 25px;
-    border: 3px solid #221f1f;
-    padding: 20px;
-    display: flex; 
-    justify-content: center; 
-    margin-bottom: 40px;
-    height: 35px;
-   
-}
-
-
+            background: #111111;
+            border-radius: 25px;
+            border: 3px solid #221f1f;
+            padding: 20px;
+            display: flex; 
+            justify-content: center; 
+            margin-bottom: 40px;
+            height: 35px;
+        }
     </style>
 </head>
 <body>
@@ -150,9 +160,27 @@
         <div class="content">
             <h2>Check out my custom Surrons!</h2>
             
+            
             <div class="image-gallery">
-                <img src="images/photos/surron1.png" alt="Custom Surron Bike 1" class="bike-image">
-                <img src="images/photos/surron2.png" alt="Custom Surron Bike 2" class="bike-image">
+                
+                <div class="slider-container" id="slider1">
+                    
+                    <img src="images/photos/surron1.png" class="slide active" alt="Custom Surron Bike 1a">
+                    
+                    <img src="images/photos/surron3.png" class="slide" alt="Custom Surron Bike 1b">
+                    
+                    <img src="images/photos/surron5.png" class="slide" alt="Custom Surron Bike 1c"> 
+                </div>
+
+              
+                <div class="slider-container" id="slider2">
+                    
+                    <img src="images/photos/surron2.png" class="slide active" alt="Custom Surron Bike 2a">
+                   
+                    <img src="images/photos/surron4.png" class="slide" alt="Custom Surron Bike 2b">
+                   
+                    <img src="images/photos/surron6.png" class="slide" alt="Custom Surron Bike 2c"> 
+                </div>
             </div>
             
             <a href="order.html">
@@ -161,14 +189,36 @@
         </div>
     </div>
 <footer>
-
-
-<a href="https://www.tiktok.com/@minironsusa?is_from_webapp=1&sender_device=pc">
-
-<img src="images/graphics/tiktok.png" alt="TikTok" class="logo" style="height:40px;width:auto;">
-
-            </a>
+    <a href="https://www.tiktok.com/@minironsusa?is_from_webapp=1&sender_device=pc">
+        <img src="images/graphics/tiktok.png" alt="TikTok" class="logo" style="height:40px;width:auto;">
+    </a>
 </footer>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const slides1 = document.querySelectorAll('#slider1 .slide');
+        const slides2 = document.querySelectorAll('#slider2 .slide');
+        let currentSlide = 0;
+        const intervalTime = 7500; 
+
+        function nextSlide() {
+            
+            slides1[currentSlide].classList.remove('active');
+            slides2[currentSlide].classList.remove('active');
+
+            
+            currentSlide = (currentSlide + 1) % slides1.length;
+
+            
+            slides1[currentSlide].classList.add('active');
+            slides2[currentSlide].classList.add('active');
+        }
+
+        
+        setInterval(nextSlide, intervalTime);
+    });
+</script>
+
 </body>
 </html>
-
